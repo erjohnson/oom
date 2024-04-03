@@ -5,6 +5,7 @@
 #include <stdalign.h>
 #include <string.h>
 #include <assert.h>
+#include <stdio.h>
 
 #pragma warning(push, 0)
 
@@ -34,13 +35,27 @@
 #define Unused(expr) (void)(expr)
 
 // Tell Nvidia/AMD drivers to use the most powerful GPU instead of an integrated GPU. Requires Direct3D or OpenGL.
-extern "C" {
-    __declspec(dllexport) DWORD NvOptimusEnablement                  = 0x00000001;
-    __declspec(dllexport) DWORD AmdPowerXpressRequestHighPerformance = 0x00000001;
-}
+__declspec(dllexport) DWORD NvOptimusEnablement                  = 0x00000001;
+__declspec(dllexport) DWORD AmdPowerXpressRequestHighPerformance = 0x00000001;
+
 
 // globals
 static HWND gWindow;
+
+static void _init_console_win32(void)
+{
+	BOOL con_valid = FALSE;
+	con_valid      = AttachConsole(ATTACH_PARENT_PROCESS);
+	if (con_valid)
+	{
+		FILE   *res_fp = 0;
+		errno_t err;
+		err = freopen_s(&res_fp, "CON", "w", stdout);
+		(void)err;
+		err = freopen_s(&res_fp, "CON", "w", stderr);
+		(void)err;
+	}
+}
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
 {
@@ -70,6 +85,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	Unused(hPrevInstance);
 	Unused(lpCmdLine);
 	Unused(nShowCmd);
+
+	_init_console_win32();
+
+	printf("hello console\n");
 
 	{
 		WNDCLASSEXW window_class   = {0};
