@@ -4,11 +4,14 @@
 #include <stdint.h>
 #include <stddef.h>
 #include <limits.h>
-#include <stdbool.h>
 #include <stdalign.h>
 #include <string.h>
 #include <stdlib.h>
 #include <assert.h>
+
+#if !defined(__cplusplus)
+#include <stdbool.h>
+#endif // !defined(__cplusplus)
 
 typedef int8_t   s8;
 typedef int16_t  s16;
