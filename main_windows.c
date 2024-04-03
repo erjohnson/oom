@@ -6,12 +6,16 @@
 #include <string.h>
 #include <assert.h>
 
+#pragma warning(push, 0)
+
 #define UNICODE
 #define NOMINMAX
 #define COBJMACROS
 #define WIN32_LEAN_AND_MEAN
 #include <Windows.h>
 #include <intrin.h>
+
+#pragma warning(pop)
 
 #pragma comment(lib, "kernel32")
 #pragma comment(lib, "user32")
@@ -28,7 +32,6 @@
 #define HR(hr) do { HRESULT _hr = (hr); Assert(SUCCEEDED(_hr)); } while (0)
 
 #define Unused(expr) (void)(expr)
-
 
 // Tell Nvidia/AMD drivers to use the most powerful GPU instead of an integrated GPU. Requires Direct3D or OpenGL.
 extern "C" {
