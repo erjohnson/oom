@@ -1,0 +1,39 @@
+---
+AlignAfterOpenBracket: Align
+AlignConsecutiveAssignments:
+  Enabled: true
+AlignConsecutiveDeclarations:
+  Enabled: true
+AlignConsecutiveMacros:
+  Enabled: true
+AlignConsecutiveShortCaseStatements:
+  Enabled: true
+AlignEscapedNewlines: Left
+AllowShortBlocksOnASingleLine: Always
+AllowShortIfStatementsOnASingleLine: false
+AllowShortCaseLabelsOnASingleLine: true
+AllowShortEnumsOnASingleLine: true
+AllowShortFunctionsOnASingleLine: None
+AllowShortLoopsOnASingleLine: true
+BinPackArguments: true
+BinPackParameters: true
+BraceWrapping:
+  AfterCaseLabel: true
+  AfterControlStatement: true
+  AfterStruct: true
+  BeforeElse: true
+  BeforeWhile: true
+  AfterEnum: true
+  AfterFunction: true
+  AfterClass: true
+BreakBeforeBraces: Custom
+ColumnLimit: 120
+IncludeBlocks: Preserve
+IndentCaseBlocks: false
+IndentCaseLabels: false
+IndentWidth: 8
+SortIncludes: Never
+TabWidth: 8
+UseTab: AlignWithSpaces
+DerivePointerAlignment: false
+PointerAlignment: Right
