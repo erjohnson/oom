@@ -1,0 +1,36 @@
+{
+	"folders":
+	[
+		{
+			"path": ".",
+		},
+		{
+			"path": "D:\\Odin\\core",
+		},
+		{
+			"path": "D:\\Odin\\base",
+		},
+		{
+			"path": "D:\\Odin\\vendor",
+		},
+	],
+	"build_systems":
+	[
+		{
+			"name": "project_name",
+			"cmd": "odin run .",
+			"file_regex": "^(.+)\\(([0-9]+):([0-9]+)\\) (.+)$",
+		}
+	],
+	"settings":
+	{
+		"auto_complete": false,
+		"LSP":
+		{
+			"odin":
+			{
+				"enabled": true,
+			},
+		},
+	},
+}
